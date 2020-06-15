@@ -28,6 +28,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker', require: false # for sample data in development
+  # binstubを使用する（テストスイートの起動時間を早くする）
+  gem 'spring-commands-rspec'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
