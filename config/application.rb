@@ -18,9 +18,13 @@ module Projects
     # 不要なファイルを作成しないようにする
     config.generators do |g|
       g.test_framework :rspec,
+      # テストデータベースにレコードを作成するファイルの作成をスキップ
       fixtures: false,
+      # ビュースペックを作成しない
       view_specs: false,
+      # ヘルパーファイル用のスペックを作成しない
       helper_specs: false,
+      #  config/routes.rb 用のスペックファイルの作成を省略
       routing_specs: false
     end
   end
