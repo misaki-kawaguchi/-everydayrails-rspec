@@ -19,8 +19,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails', '~> 4.10.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13.0'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -31,6 +29,12 @@ group :development do
   gem 'faker', require: false # for sample data in development
   # binstubを使用する（テストスイートの起動時間を早くする）
   gem 'spring-commands-rspec'
+end
+
+group :test do
+  gem 'capybara', '~> 3.25.0'
+  gem 'webdrivers'
+  gem 'launchy', '~> 2.4.3'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
