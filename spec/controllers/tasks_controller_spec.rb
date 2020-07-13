@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
-  before do
-    @user = FactoryBot.create(:user)
-    @project = FactoryBot.create(:project, owner: @user)
-    @task = @project.tasks.create!(name: "Test task")
-  end
+  include_context "project setup"
 
   describe "#show" do
     # JSON 形式でレスポンスを返すこと
@@ -40,7 +36,7 @@ RSpec.describe TasksController, type: :controller do
     # 認証を要求すること
     it "requires authentication" do
       new_task = { name: "New test task" }
-      # Don't sign in this time ...
+      # ここではあえてログインしない ...
       expect {
         post :create, format: :json,
           params: { project_id: @project.id, task: new_task }
