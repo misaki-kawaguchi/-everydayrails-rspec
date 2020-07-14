@@ -12,9 +12,12 @@ RSpec.describe ProjectsController, type: :controller do
       it "responds successfully" do
         sign_in @user
         get :index
-        expect(response).to be_success
-        expect(response).to have_http_status "200"
+        aggregate_failures do
+          expect(response).to be_success
+          expect(response).to have_http_status "200"
+        end
       end
+    end
 
     # ゲストとして
     context "as a guest" do
