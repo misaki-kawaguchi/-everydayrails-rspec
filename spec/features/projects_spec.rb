@@ -4,6 +4,9 @@ RSpec.feature "Projects", type: :feature do
   # ユーザーは新しいプロジェクトを作成する
   scenario "user creates a new project" do
     user = FactoryBot.create(:user)
+    # この章で独自に定義したログインヘルパーを使う場合
+    # sign_in_as user
+    # もしくは Devise が提供しているヘルパーを使う場合
     sign_in user
 
     visit root_path
