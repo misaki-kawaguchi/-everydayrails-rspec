@@ -13,15 +13,9 @@ RSpec.describe ProjectsController, type: :controller do
         sign_in @user
         get :index
         expect(response).to be_success
-      end
-
-      # 200レスポンスを返すこと
-      it "returns a 200 response" do
-        sign_in @user
-        get :index
         expect(response).to have_http_status "200"
       end
-    end
+
     # ゲストとして
     context "as a guest" do
       # 302レスポンスを返すこと
